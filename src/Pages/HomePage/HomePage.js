@@ -2,6 +2,7 @@ import styled from "styled-components"
 import GameCard from "./Components/GameCard.js"
 import { useEffect, useState } from "react"
 import axios from "axios";
+import { mainColor } from "../../constants/colors.js";
 
 export default function HomePage(){
   const {REACT_APP_API_URL}=process.env;
@@ -31,12 +32,10 @@ export default function HomePage(){
 }
 
 const Page=styled.div`
-  background-color: #086b74;
-  height: 100vh;
+  background-color: ${mainColor};
 `
 
 const GameCardContainer=styled.div`
-  background-color: green;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { gameCardColor } from "../../../constants/colors.js";
 
 export default function GameCard({addToCart, gameInfo: {
     _id, name, price, header_img, release, genres
@@ -9,7 +10,7 @@ export default function GameCard({addToCart, gameInfo: {
             <img src={header_img} alt={name} />
             <GameInfo>
                 <span>{name}</span>
-                <span>{genres.splice(0,2).join(',')}</span>
+                <span>{genres.splice(0,3).join(', ')}</span>
                 <span>{release}</span>
                 <span>{`R$ ${(price/100).toFixed(2).replace('.',',')}`}</span>
             </GameInfo>
@@ -18,7 +19,7 @@ export default function GameCard({addToCart, gameInfo: {
 };
 
 const Card=styled.div`
-    background: blue;
+    background: ${gameCardColor};
     margin: 10px;
     padding: 5px;
 `;
