@@ -1,28 +1,32 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import styled from "styled-components";
 import IdContext from "./Components/Context";
 import SignIn from "./Pages/Register/SignIn/SignIn";
 import Signup from "./Pages/Register/SignUp/SignUp";
 import { useState } from "react";
+import HomePage from "./Pages/HomePage/HomePage.js";
+import { useState } from "react";
+import { cartListContext } from "./Components/Context.js";
+
 
 
 export default function App() {
 
 
   const [internalAnalysis, setInternalAnalysis] = useState([]);
+  const [cartList, setCartList] = useState([]);
 
   return (
 
     <IdContext.Provider value={{ internalAnalysis, setInternalAnalysis }}>
 
     <BrowserRouter>
-       
-      <Routes>
-        <Route path="/" element={<Page />} />
-        <Route path="/SignIn" element={<SignIn />} />
+      <cartListContext.Provider value={{ cartList, setCartList }} >
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/SignIn" element={<SignIn />} />
         <Route path="/SignUp" element={<Signup />} />
-      </Routes>
-    
+        </Routes>
+      </cartListContext.Provider>
     </BrowserRouter>
 
     </IdContext.Provider>
@@ -31,8 +35,3 @@ export default function App() {
 
 // font-family: 'Bungee', cursive;
 // font-family: 'Rubik Wet Paint', cursive;
-
-const Page = styled.div`
-  background-color: #086b74;
-  height: 100vh;
-`
