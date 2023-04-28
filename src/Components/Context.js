@@ -1,6 +1,6 @@
 
 import { createContext } from "react";
 
-const IdContext = createContext()
+const IdContext = createContext({});
 
-export default IdContext
+export default IdContext;
