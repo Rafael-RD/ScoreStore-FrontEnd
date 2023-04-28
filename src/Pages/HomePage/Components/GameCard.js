@@ -12,7 +12,7 @@ export default function GameCard({addToCart, gameInfo: {
                 <span>{name}</span>
                 <span>{genres.splice(0,3).join(', ')}</span>
                 <span>{release}</span>
-                <span>{`R$ ${(price/100).toFixed(2).replace('.',',')}`}</span>
+                <span>{`R$ ${price.toFixed(2).replace('.',',')}`}</span>
             </GameInfo>
         </Card>
     )
@@ -30,7 +30,7 @@ const GameInfo=styled.div`
         'name name'
         'genres genres'
         'release price';
-    height: fit-content;
+    row-gap: 8px;
 
     span{
         text-align: center;
