@@ -4,7 +4,6 @@ import SignIn from "./Pages/Register/SignIn/SignIn";
 import Signup from "./Pages/Register/SignUp/SignUp";
 import { useState } from "react";
 import HomePage from "./Pages/HomePage/HomePage.js";
-import { useState } from "react";
 import { cartListContext } from "./Components/Context.js";
 
 
