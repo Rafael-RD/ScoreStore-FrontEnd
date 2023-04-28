@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import styled from "styled-components";
+import HomePage from "./Pages/HomePage/HomePage.js";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Page />} />
+        <Route path="/" element={<HomePage />} />
       </Routes>
     </BrowserRouter>
   );
@@ -13,8 +13,3 @@ export default function App() {
 
 // font-family: 'Bungee', cursive;
 // font-family: 'Rubik Wet Paint', cursive;
-
-const Page = styled.div`
-  background-color: #086b74;
-  height: 100vh;
-`
