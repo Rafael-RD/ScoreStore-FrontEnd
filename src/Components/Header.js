@@ -1,62 +1,62 @@
 
-import { useNavigate , Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import styled from "styled-components";
 import { BsHandbag } from 'react-icons/bs';
 import { FaGamepad } from 'react-icons/fa'
 
-export default function Header () {
+export default function Header() {
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    return(
+  return (
 
-        <HeaderContainer>
+    <HeaderContainer>
 
-            
-           
-            <MainTitle  onClick={() => {
-          navigate('/');
-        }}> <FaGamepad/> ScoreStore</MainTitle>
-           
-        <OptionsBox>
 
-            <ToForward>
 
-      <p           
-          onClick={() => {
-          navigate('/SignIn');
-        }}>Login</p>
+      <MainTitle onClick={() => {
+        navigate('/');
+      }}> <FaGamepad /> ScoreStore</MainTitle>
 
-      </ToForward>
+      <OptionsBox>
 
-      <ToForward>
+        <ToForward>
 
-      <p           
-          onClick={() => {
-          navigate('/Signup');
-        }}>Cadastro</p>
+          <p
+            onClick={() => {
+              navigate('/SignIn');
+            }}>Login</p>
 
-      </ToForward>
+        </ToForward>
 
-      <ToForward>
-      <p>Carrinho</p>
-      </ToForward>
+        <ToForward>
 
-      <ToForward>
+          <p
+            onClick={() => {
+              navigate('/Signup');
+            }}>Cadastro</p>
 
-            <BsHandbag onClick={() => {
-          navigate('');
-        }} size="1.6em" />
-     
-      </ToForward>
+        </ToForward>
 
-      
+        <ToForward>
+          <p>Carrinho</p>
+        </ToForward>
+
+        <ToForward>
+
+          <BsHandbag onClick={() => {
+            navigate('');
+          }} size="1.6em" />
+
+        </ToForward>
+
+
 
       </OptionsBox>
 
-      
-        </HeaderContainer>
-    )
+
+    </HeaderContainer>
+  )
 }
 
 
@@ -107,8 +107,8 @@ font-family: 'Bungee', cursive;
 cursor: pointer;
 &:hover {
     color: #800000;
-
-` 
+}
+`
 
 const OptionsBox = styled.div`
 

@@ -17,17 +17,17 @@ export default function App() {
   return (
 
     <IdContext.Provider value={{ internalAnalysis, setInternalAnalysis }}>
-
-    <BrowserRouter>
       <cartListContext.Provider value={{ cartList, setCartList }} >
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/SignIn" element={<SignIn />} />
-        <Route path="/SignUp" element={<Signup />} />
-        </Routes>
-      </cartListContext.Provider>
-    </BrowserRouter>
 
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/SignIn" element={<SignIn />} />
+            <Route path="/SignUp" element={<Signup />} />
+          </Routes>
+        </BrowserRouter>
+
+      </cartListContext.Provider>
     </IdContext.Provider>
   );
 }

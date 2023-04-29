@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react"
 import axios from "axios";
 import { mainColor } from "../../constants/colors.js";
 import { cartListContext } from "../../Components/Context.js";
+import Header from "../../Components/Header.js";
 
 export default function HomePage(){
   const {REACT_APP_API_URL}=process.env;
@@ -31,6 +32,7 @@ export default function HomePage(){
 
     return(
         <Page>
+          <Header />
           <GameCardContainer>
             {gameList.map(e=><GameCard addToCart={addToCart} key={e._id} gameInfo={e} />)}
           </GameCardContainer>
@@ -40,6 +42,7 @@ export default function HomePage(){
 
 const Page=styled.div`
   background-color: ${mainColor};
+  padding-top: 90px;
 `
 
 const GameCardContainer=styled.div`
