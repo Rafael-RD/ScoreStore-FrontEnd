@@ -62,7 +62,7 @@ export default function Header () {
 
 const HeaderContainer = styled.div`
 
-display: flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     height: 90px;
@@ -79,27 +79,23 @@ display: flex;
     position: fixed;
     top: 0;
     z-index: 1;
-        
-        }  
-
-
 `
 
 const MainTitle = styled.h1`
 
-color: #black;
+color: black;
 font-family: 'Rubik Wet Paint', cursive;
 font-weight: 400;
 font-size: 60px;
 line-height: 50px;
 margin-top:100px;
 margin-bottom:80px;
+display: flex;
 justify-content: space-between;
-text-decoration: none;
+align-items: center;
 cursor: pointer;
 
-
-`;
+`
 
 const ToForward = styled.p`
 
@@ -108,7 +104,7 @@ font-size: 15px;
 line-height: 18px;
 margin-top:36px;
 font-family: 'Bungee', cursive;
- cursor: pointer;
+cursor: pointer;
 &:hover {
     color: #800000;
 
@@ -117,8 +113,8 @@ font-family: 'Bungee', cursive;
 const OptionsBox = styled.div`
 
 display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width:25%;
+justify-content: space-around;
+align-items: center;
+width:25%;
 
 `
