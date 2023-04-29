@@ -1,5 +1,5 @@
 
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { BsHandbag } from 'react-icons/bs';
 import { FaGamepad } from 'react-icons/fa'
