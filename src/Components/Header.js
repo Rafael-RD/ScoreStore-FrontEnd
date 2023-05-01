@@ -83,7 +83,7 @@ const HeaderContainer = styled.div`
 
 const MainTitle = styled.h1`
 
-color: black;
+color: white;
 font-family: 'Rubik Wet Paint', cursive;
 font-weight: 400;
 font-size: 60px;
@@ -99,7 +99,7 @@ cursor: pointer;
 
 const ToForward = styled.p`
 
-color: black;
+color: white;
 font-size: 15px;
 line-height: 18px;
 margin-top:36px;
