@@ -6,7 +6,8 @@ const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
     }
 
-    body{    
+    body{   
+        color: white;
         font-family: 'Bungee', cursive;
         background-color: ${mainColor};
     }

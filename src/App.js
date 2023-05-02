@@ -1,12 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import IdContext from "./Components/Context";
+import {IdContext} from "./Components/Context";
 import SignIn from "./Pages/Register/SignIn/SignIn";
 import Signup from "./Pages/Register/SignUp/SignUp";
+import Cart from "./Pages/Cart/Cart";
 import { useState } from "react";
 import HomePage from "./Pages/HomePage/HomePage.js";
 import { cartListContext } from "./Components/Context.js";
-
-
 
 export default function App() {
 
@@ -24,6 +23,7 @@ export default function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/SignIn" element={<SignIn />} />
             <Route path="/SignUp" element={<Signup />} />
+            <Route path="/Cart" element={<Cart />} />
           </Routes>
         </BrowserRouter>
 

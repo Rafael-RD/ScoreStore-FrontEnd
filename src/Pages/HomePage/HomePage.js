@@ -1,6 +1,6 @@
-import styled from "styled-components"
-import GameCard from "./Components/GameCard.js"
-import { useContext, useEffect, useState } from "react"
+import styled from "styled-components";
+import GameCard from "./Components/GameCard.js";
+import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { mainColor } from "../../constants/colors.js";
 import { cartListContext } from "../../Components/Context.js";
@@ -43,10 +43,10 @@ export default function HomePage(){
 const Page=styled.div`
   background-color: ${mainColor};
   padding-top: 90px;
-`
+`;
 
 const GameCardContainer=styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-`
+`;

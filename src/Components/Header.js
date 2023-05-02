@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { BsHandbag } from 'react-icons/bs';
 import { FaGamepad } from 'react-icons/fa'
 import { useContext } from "react";
-import IdContext from "./Context.js";
+import { IdContext } from "./Context.js";
 
 export default function Header() {
   const { internalAnalysis, setInternalAnalysis } = useContext(IdContext);
@@ -15,9 +15,7 @@ export default function Header() {
     // console.log(internalAnalysis)
     if (internalAnalysis.name) {
       return (
-        <ToForward onClick={logout}>
-          <span>Ola, {internalAnalysis.name}</span>
-        </ToForward>
+          <CustomSpan onClick={logout}>Ola, {internalAnalysis.name}</CustomSpan>
       )
     } else {
       return (
@@ -43,7 +41,6 @@ export default function Header() {
     setInternalAnalysis({});
   }
 
-
   return (
     <HeaderContainer>
       <MainTitle onClick={() => navigate('/')}>
@@ -54,33 +51,9 @@ export default function Header() {
         
         {showLogin()}
 
-        {/* <ToForward>
-          <p
-            onClick={() => {
-              navigate('/SignIn');
-            }}>Login</p>
-
-        </ToForward>
-
-        <ToForward>
-
-          <p
-            onClick={() => {
-              navigate('/Signup');
-            }}>Cadastro</p>
-
-        </ToForward> */}
-
-        <ToForward>
-          <p onClick={showLogin}>Carrinho</p>
-        </ToForward>
-
-        <ToForward>
-
-          <BsHandbag onClick={() => {
-            navigate('');
-          }} size="1.6em" />
-
+        <ToForward onClick={() => {navigate('/Cart')}}>
+          <p>Carrinho</p>
+          <BsHandbag size="1.6em" />
         </ToForward>
 
       </OptionsBox>
@@ -91,7 +64,6 @@ export default function Header() {
 
 
 const HeaderContainer = styled.div`
-
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -113,7 +85,7 @@ const HeaderContainer = styled.div`
 
 const MainTitle = styled.h1`
 
-color: black;
+color: white;
 font-family: 'Rubik Wet Paint', cursive;
 font-weight: 400;
 font-size: 60px;
@@ -128,8 +100,9 @@ cursor: pointer;
 `
 
 const ToForward = styled.p`
-
-color: black;
+display: flex;
+align-items: center;
+color: white;
 font-size: 15px;
 line-height: 18px;
 margin-top:36px;
@@ -137,6 +110,9 @@ font-family: 'Bungee', cursive;
 cursor: pointer;
 &:hover {
     color: #800000;
+}
+p {
+  padding-right: 8px;
 }
 `
 
@@ -146,5 +122,19 @@ display: flex;
 justify-content: space-around;
 align-items: center;
 width:25%;
+`
 
+const CustomSpan=styled.span`
+display: flex;
+align-items: center;
+color: white;
+font-size: 15px;
+line-height: 18px;
+margin-top:36px;
+padding-right: 8px;
+font-family: 'Bungee', cursive;
+cursor: pointer;
+&:hover {
+    color: #800000;
+}
 `
