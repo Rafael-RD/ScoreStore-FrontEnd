@@ -28,7 +28,7 @@ function LoginInput () {
 
                   navigate("/")
                   setInternalAnalysis(ok.data)
-
+                  console.log(ok.data)
               });
 
               nextPage.catch(error => {

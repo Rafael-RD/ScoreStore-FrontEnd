@@ -1,4 +1,7 @@
+import { useEffect } from "react";
+import axios from "axio";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import {useContext} from 'react';
 import { cartListContext } from "../../Components/Context.js";
 import Header from "../../Components/Header.js";
@@ -6,10 +9,19 @@ import GameCard from "../HomePage/Components/GameCard.js";
 import {mainColor} from "../../constants/colors.js";
 
 export default function Cart(){
-    const {cartList} = useContext(cartListContext);
+    const navigate = useNavigate();
+    const {cartList,setCartList} = useContext(cartListContext);
 
     function sendOrder(){
-        alert("Pedido Enviado!");
+        useEffect(()=>{
+            axios.post(`${REACT_APP_API_URL}/cart`)
+              .then(res=>{
+                alert("Pedido Enviado!");
+                setCartList([]);
+                navigate('/');
+              })
+              .catch(res=>console.error(res));
+          },[]);
     }
     return (
         <Page>
@@ -49,7 +61,7 @@ const CartContainer=styled.div`
 
 const Button = styled.button`
   
-margin: 0px auto 0px;
+margin: 20px auto 40px;
 width: 400px;
 height: 46px;
 font-family: 'Bungee', cursive;
