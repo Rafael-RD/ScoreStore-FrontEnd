@@ -28,7 +28,7 @@ export default function Cart(){
             </CartContainer>
             {/* Mostrar Preço Total do Pedido */}
             <Button onClick={sendOrder}>
-                <p>Enviar Pedido</p>
+                <p>Enviar Pedido!</p>
             </Button>
         </Page>
     )
