@@ -12,7 +12,6 @@ export default function HomePage(){
   useEffect(()=>{
     axios.get(`${REACT_APP_API_URL}/products`)
       .then(res=>{
-        console.log(res.data);
         setGameList(res.data);
       })
       .catch(res=>console.error(res));

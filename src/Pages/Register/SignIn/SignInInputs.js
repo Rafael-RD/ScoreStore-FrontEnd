@@ -1,5 +1,3 @@
-
- 
 import styled from "styled-components";
 import { useState , useContext} from "react";
 import axios from "axios";
@@ -28,7 +26,6 @@ function LoginInput () {
 
                   navigate("/")
                   setInternalAnalysis(ok.data)
-                  console.log(ok.data)
               });
 
               nextPage.catch(error => {

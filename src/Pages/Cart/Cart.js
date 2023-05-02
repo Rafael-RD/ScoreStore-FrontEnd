@@ -3,7 +3,7 @@ import axios from "axios";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import {useContext} from 'react';
-import { cartListContext } from "../../Components/Context.js";
+import { cartListContext, IdContext} from "../../Components/Context.js";
 import Header from "../../Components/Header.js";
 import GameCard from "../HomePage/Components/GameCard.js";
 import {mainColor} from "../../constants/colors.js";
@@ -11,20 +11,18 @@ import {mainColor} from "../../constants/colors.js";
 export default function Cart(){
     const navigate = useNavigate();
     const {cartList,setCartList} = useContext(cartListContext);
+    const {internalAnalysis} = useContext(IdContext);
 
     function sendOrder(){
-        // useEffect(()=>{
-        //     axios.post(`${REACT_APP_API_URL}/cart`)
-        //       .then(res=>{
-        //         alert("Pedido Enviado!");
-        //         setCartList([]);
-        //         navigate('/');
-        //       })
-        //       .catch(res=>console.error(res));
-        //   },[]);
-        alert("Pedido Enviado!");
-        setCartList([]);
-        navigate('/');
+        useEffect(()=>{
+            axios.post(`${REACT_APP_API_URL}/cart`,{cartList,token: internalAnalysis.token})
+              .then(res=>{
+                alert("Pedido Enviado!");
+                setCartList([]);
+                navigate('/');
+              })
+              .catch(res=>console.error(res));
+          },[]);
     }
     return (
         <Page>
