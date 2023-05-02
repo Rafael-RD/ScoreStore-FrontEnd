@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
@@ -9,20 +8,19 @@ import GameCard from "../HomePage/Components/GameCard.js";
 import {mainColor} from "../../constants/colors.js";
 
 export default function Cart(){
+    const {REACT_APP_API_URL}=process.env;
     const navigate = useNavigate();
     const {cartList,setCartList} = useContext(cartListContext);
     const {internalAnalysis} = useContext(IdContext);
 
     function sendOrder(){
-        useEffect(()=>{
-            axios.post(`${REACT_APP_API_URL}/cart`,{cartList,token: internalAnalysis.token})
-              .then(res=>{
-                alert("Pedido Enviado!");
-                setCartList([]);
-                navigate('/');
-              })
-              .catch(res=>console.error(res));
-          },[]);
+        axios.post(`${REACT_APP_API_URL}/cart`,{cartList,token: internalAnalysis.token})
+            .then(res=>{
+            alert("Pedido Enviado!");
+            setCartList([]);
+            navigate('/');
+            })
+            .catch(res=>console.error(res));
     }
     return (
         <Page>
