@@ -18,18 +18,6 @@ export default function HomePage(){
       .catch(res=>console.error(res));
   },[]) // eslint-disable-line
 
-<<<<<<< HEAD
-=======
-  useEffect(()=>{
-    // console.log(cartList);
-  },[cartList])
-
-  function addToCart(id, name, price, img){
-    if(cartList.some(e=>e.id===id)) setCartList([cartList.filter(e=>e.id!==id)]);
-    else setCartList([...cartList, {id, name, price, img}]);
-  }
-
->>>>>>> c729d8887792ba6e356477c983032d5e7956d612
     return(
         <Page>
           <Header />
