@@ -3,25 +3,58 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { BsHandbag } from 'react-icons/bs';
 import { FaGamepad } from 'react-icons/fa'
+import { useContext } from "react";
+import IdContext from "./Context.js";
 
 export default function Header() {
+  const { internalAnalysis, setInternalAnalysis } = useContext(IdContext);
 
   const navigate = useNavigate();
 
+  function showLogin() {
+    // console.log(internalAnalysis)
+    if (internalAnalysis.name) {
+      return (
+        <ToForward onClick={logout}>
+          <span>Ola, {internalAnalysis.name}</span>
+        </ToForward>
+      )
+    } else {
+      return (
+        <>
+          <ToForward>
+            <p
+              onClick={() => {
+                navigate('/SignIn');
+              }}>Login</p>
+          </ToForward>
+          <ToForward>
+            <p
+              onClick={() => {
+                navigate('/Signup');
+              }}>Cadastro</p>
+          </ToForward>
+        </>
+      )
+    }
+  }
+
+  function logout(){
+    setInternalAnalysis({});
+  }
+
+
   return (
-
     <HeaderContainer>
-
-
-
-      <MainTitle onClick={() => {
-        navigate('/');
-      }}> <FaGamepad /> ScoreStore</MainTitle>
-
+      <MainTitle onClick={() => navigate('/')}>
+        <FaGamepad />
+        ScoreStore
+      </MainTitle>
       <OptionsBox>
+        
+        {showLogin()}
 
-        <ToForward>
-
+        {/* <ToForward>
           <p
             onClick={() => {
               navigate('/SignIn');
@@ -36,10 +69,10 @@ export default function Header() {
               navigate('/Signup');
             }}>Cadastro</p>
 
-        </ToForward>
+        </ToForward> */}
 
         <ToForward>
-          <p>Carrinho</p>
+          <p onClick={showLogin}>Carrinho</p>
         </ToForward>
 
         <ToForward>
@@ -50,10 +83,7 @@ export default function Header() {
 
         </ToForward>
 
-
-
       </OptionsBox>
-
 
     </HeaderContainer>
   )

@@ -22,7 +22,7 @@ export default function HomePage(){
   },[]) // eslint-disable-line
 
   useEffect(()=>{
-    console.log(cartList);
+    // console.log(cartList);
   },[cartList])
 
   function addToCart(id, name, price, img){
