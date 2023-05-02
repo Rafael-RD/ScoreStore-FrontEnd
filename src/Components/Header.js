@@ -3,40 +3,53 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { BsHandbag } from 'react-icons/bs';
 import { FaGamepad } from 'react-icons/fa'
+import { useContext } from "react";
+import { IdContext } from "./Context.js";
 
 export default function Header() {
+  const { internalAnalysis, setInternalAnalysis } = useContext(IdContext);
 
   const navigate = useNavigate();
 
+  function showLogin() {
+    // console.log(internalAnalysis)
+    if (internalAnalysis.name) {
+      return (
+          <CustomSpan onClick={logout}>Ola, {internalAnalysis.name}</CustomSpan>
+      )
+    } else {
+      return (
+        <>
+          <ToForward>
+            <p
+              onClick={() => {
+                navigate('/SignIn');
+              }}>Login</p>
+          </ToForward>
+          <ToForward>
+            <p
+              onClick={() => {
+                navigate('/Signup');
+              }}>Cadastro</p>
+          </ToForward>
+        </>
+      )
+    }
+  }
+
+  function logout(){
+    setInternalAnalysis({});
+  }
+
   return (
-
     <HeaderContainer>
-
-
-
-      <MainTitle onClick={() => {
-        navigate('/');
-      }}> <FaGamepad /> ScoreStore</MainTitle>
-
+      <MainTitle onClick={() => navigate('/')}>
+        <FaGamepad />
+        ScoreStore
+      </MainTitle>
       <OptionsBox>
-
-        <ToForward>
-
-          <p
-            onClick={() => {
-              navigate('/SignIn');
-            }}>Login</p>
-
-        </ToForward>
-
-        <ToForward>
-
-          <p
-            onClick={() => {
-              navigate('/Signup');
-            }}>Cadastro</p>
-
-        </ToForward>
+        
+        {showLogin()}
 
         <ToForward onClick={() => {navigate('/Cart')}}>
           <p>Carrinho</p>
@@ -44,7 +57,6 @@ export default function Header() {
         </ToForward>
 
       </OptionsBox>
-
 
     </HeaderContainer>
   )
@@ -110,5 +122,19 @@ display: flex;
 justify-content: space-around;
 align-items: center;
 width:25%;
+`
 
+const CustomSpan=styled.span`
+display: flex;
+align-items: center;
+color: white;
+font-size: 15px;
+line-height: 18px;
+margin-top:36px;
+padding-right: 8px;
+font-family: 'Bungee', cursive;
+cursor: pointer;
+&:hover {
+    color: #800000;
+}
 `

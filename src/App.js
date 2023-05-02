@@ -8,7 +8,9 @@ import HomePage from "./Pages/HomePage/HomePage.js";
 import { cartListContext } from "./Components/Context.js";
 
 export default function App() {
-  const [internalAnalysis, setInternalAnalysis] = useState([]);
+
+
+  const [internalAnalysis, setInternalAnalysis] = useState({});
   const [cartList, setCartList] = useState([]);
 
   return (
