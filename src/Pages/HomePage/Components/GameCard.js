@@ -22,6 +22,16 @@ const Card=styled.div`
     background: ${gameCardColor};
     margin: 10px;
     padding: 5px;
+    width: 95%;
+    max-width: max-content;
+    height: max-content;
+
+    img{
+        width: 100%;
+        height: 100%;
+        max-width: auto;
+        max-height: auto;
+    }
 `;
 
 const GameInfo=styled.div`
