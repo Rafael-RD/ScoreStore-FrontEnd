@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import axios from "axio";
+import axios from "axios";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import {useContext} from 'react';
@@ -13,15 +13,18 @@ export default function Cart(){
     const {cartList,setCartList} = useContext(cartListContext);
 
     function sendOrder(){
-        useEffect(()=>{
-            axios.post(`${REACT_APP_API_URL}/cart`)
-              .then(res=>{
-                alert("Pedido Enviado!");
-                setCartList([]);
-                navigate('/');
-              })
-              .catch(res=>console.error(res));
-          },[]);
+        // useEffect(()=>{
+        //     axios.post(`${REACT_APP_API_URL}/cart`)
+        //       .then(res=>{
+        //         alert("Pedido Enviado!");
+        //         setCartList([]);
+        //         navigate('/');
+        //       })
+        //       .catch(res=>console.error(res));
+        //   },[]);
+        alert("Pedido Enviado!");
+        setCartList([]);
+        navigate('/');
     }
     return (
         <Page>
