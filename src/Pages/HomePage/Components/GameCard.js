@@ -25,6 +25,7 @@ const Card=styled.div`
     width: 95%;
     max-width: max-content;
     height: max-content;
+    cursor: pointer;
 
     img{
         width: 100%;
