@@ -3,9 +3,10 @@ import {useContext} from 'react';
 import { cartListContext } from "../../Components/Context.js";
 import Header from "../../Components/Header.js";
 import GameCard from "../HomePage/Components/GameCard.js";
+import {mainColor} from "../../constants/colors.js";
 
 export default function Cart(){
-    const {cartList, setCartList} = useContext(cartListContext);
+    const {cartList} = useContext(cartListContext);
 
     function sendOrder(){
         alert("Pedido Enviado!");
