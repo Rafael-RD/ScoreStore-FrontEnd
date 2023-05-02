@@ -6,7 +6,7 @@ import { cartListContext } from "../../../Components/Context.js";
 export default function GameCard({_id, name, price, header_img, release, genres}){
     const {cartList, setCartList} = useContext(cartListContext);
     function addToCart(){
-        if(cartList.some(e=>e._id===_id)) setCartList([cartList.filter(e=>e._id!==_id)]);
+        if(cartList.some(e=>e._id===_id)) setCartList([...cartList.filter(e=>e._id!==_id)]);
         else setCartList([...cartList, {_id, name, price, header_img, release, genres}]);
         console.log(cartList);
       }
