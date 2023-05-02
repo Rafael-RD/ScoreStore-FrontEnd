@@ -11,9 +11,9 @@ export default function Cart(){
         alert("Pedido Enviado!");
     }
     return (
-        <>
+        <Page>
             <Header />
-            <GameCardContainer>
+            <CartContainer>
                 {cartList.map( c =>
                     <GameCard  
                         key={c._id}
@@ -25,16 +25,21 @@ export default function Cart(){
                         genres={c.genres}
                     />)
                 }
-            </GameCardContainer>
+            </CartContainer>
             {/* Mostrar Preço Total do Pedido */}
             <Button onClick={sendOrder}>
-                <p>Entrar</p>
+                <p>Enviar Pedido</p>
             </Button>
-        </>
+        </Page>
     )
 }
 
-const GameCardContainer=styled.div`
+const Page=styled.div`
+  background-color: ${mainColor};
+  padding-top: 90px;
+`;
+
+const CartContainer=styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,6 +48,7 @@ const GameCardContainer=styled.div`
 
 const Button = styled.button`
   
+margin: 0px auto 0px;
 width: 400px;
 height: 46px;
 font-family: 'Bungee', cursive;

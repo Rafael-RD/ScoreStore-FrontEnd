@@ -16,7 +16,7 @@ export default function GameCard({_id, name, price, header_img, release, genres}
             <img src={header_img} alt={name} />
             <GameInfo>
                 <span>{name}</span>
-                <span>{genres.join(', ')}</span>
+                <span>{genres.filter((x,i) => i<3).join(', ')}</span>
                 <span>{release}</span>
                 <span>{`R$ ${price.toFixed(2).replace('.',',')}`}</span>
             </GameInfo>
