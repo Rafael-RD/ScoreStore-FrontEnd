@@ -45,7 +45,7 @@ const LoginPageContainer = styled.div`
 
 const MainTitle = styled.h1`
 
-  color: #black;
+  color: white;
   font-family: 'Rubik Wet Paint', cursive;
   font-weight: 400;
   font-size: 80px;
@@ -56,16 +56,15 @@ const MainTitle = styled.h1`
 `;
 
 const ToForward = styled.p`
-
-color: black;
-font-weight: 700;
-font-size: 15px;
-line-height: 18px;
-margin-top:36px;
-font-family: 'Bungee', cursive;
-text-decoration: underline;
- cursor: pointer;
-&:hover {
-    color: #800000;
-
-`
+  color: black;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  margin-top:36px;
+  font-family: 'Bungee', cursive;
+  text-decoration: underline;
+  cursor: pointer;
+  &:hover {
+      color: #800000;
+  }
+`;

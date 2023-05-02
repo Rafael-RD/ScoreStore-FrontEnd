@@ -38,19 +38,10 @@ export default function Header() {
 
         </ToForward>
 
-        <ToForward>
+        <ToForward onClick={() => {navigate('/Cart')}}>
           <p>Carrinho</p>
+          <BsHandbag size="1.6em" />
         </ToForward>
-
-        <ToForward>
-
-          <BsHandbag onClick={() => {
-            navigate('');
-          }} size="1.6em" />
-
-        </ToForward>
-
-
 
       </OptionsBox>
 
@@ -61,7 +52,6 @@ export default function Header() {
 
 
 const HeaderContainer = styled.div`
-
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -98,7 +88,8 @@ cursor: pointer;
 `
 
 const ToForward = styled.p`
-
+display: flex;
+align-items: center;
 color: white;
 font-size: 15px;
 line-height: 18px;
@@ -107,6 +98,9 @@ font-family: 'Bungee', cursive;
 cursor: pointer;
 &:hover {
     color: #800000;
+}
+p {
+  padding-right: 8px;
 }
 `
 

@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { useState , useContext} from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import IdContext from "../../../Components/Context";
+import {IdContext} from "../../../Components/Context";
 
 function LoginInput () {
 
@@ -48,11 +48,11 @@ function LoginInput () {
     <Form onSubmit={main}>
 
       <BigBox htmlFor="email">
-        <Input placeholder="E-mail" type="text" id="email"  value={email} onChange={(parameter) => setEmail(parameter.currentTarget.value)}></Input>
+        <Input required placeholder="E-mail" type="text" id="email"  value={email} onChange={(parameter) => setEmail(parameter.currentTarget.value)}></Input>
       </BigBox>
 
       <BigBox htmlFor="password">
-        <Input placeholder="Senha" type="text" id="password" value={password} onChange={(parameter) => setPassword(parameter.currentTarget.value)} ></Input>
+        <Input required placeholder="Senha" type="password" id="password" value={password} onChange={(parameter) => setPassword(parameter.currentTarget.value)} ></Input>
       </BigBox>
 
       <Button type="submit" id="submitbutton">
@@ -116,7 +116,7 @@ border-radius: 5px;
 display: flex;
 justify-content: center;
 align-items: center;
-color: black;
+color: white;
 cursor: pointer;
 font-size: 20px;
 transition: 0.4s;

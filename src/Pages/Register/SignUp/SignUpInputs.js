@@ -49,19 +49,19 @@ function SignUpInputs() {
       <Form onSubmit={signup}>
 
         <BigBox htmlFor="name">
-          <Input placeholder="Nome" type="text" id="name" value={personalUser} onChange={(parameter) => setPersonalUser(parameter.currentTarget.value)}></Input>
+          <Input required placeholder="Nome" type="text" id="name" value={personalUser} onChange={(parameter) => setPersonalUser(parameter.currentTarget.value)}></Input>
         </BigBox>
 
         <BigBox htmlFor="email">
-          <Input placeholder="E-mail" type="text" id="email" value={email} onChange={(parameter) => setEmail(parameter.currentTarget.value)}></Input>
+          <Input required placeholder="E-mail" type="email" id="email" value={email} onChange={(parameter) => setEmail(parameter.currentTarget.value)}></Input>
         </BigBox>
 
         <BigBox htmlFor="password">
-          <Input placeholder="Senha" type="text" id="password"  value={password} onChange={(parameter) => setPassword(parameter.currentTarget.value)}></Input>
+          <Input required placeholder="Senha" type="password" id="password"  value={password} onChange={(parameter) => setPassword(parameter.currentTarget.value)}></Input>
         </BigBox>
 
         <BigBox htmlFor="confirm-password">
-          <Input placeholder="Confirme a senha" type="text" id="password"  value={parole} onChange={(parameter) => setParole(parameter.currentTarget.value)} ></Input>
+          <Input required placeholder="Confirme a senha" type="password" id="password"  value={parole} onChange={(parameter) => setParole(parameter.currentTarget.value)} ></Input>
         </BigBox>
 
         <Button type="submit" id="submitbutton">
@@ -122,7 +122,7 @@ function SignUpInputs() {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: black;
+  color: white;
   cursor: pointer;
   font-size: 20px;
   transition: 0.4s;
