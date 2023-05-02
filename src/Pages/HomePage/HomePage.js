@@ -1,16 +1,13 @@
 import styled from "styled-components";
 import GameCard from "./Components/GameCard.js";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { mainColor } from "../../constants/colors.js";
-import { cartListContext } from "../../Components/Context.js";
 import Header from "../../Components/Header.js";
 
 export default function HomePage(){
   const {REACT_APP_API_URL}=process.env;
-  const {cartList, setCartList}=useContext(cartListContext);
   const [gameList,setGameList]=useState([]);
-
 
   useEffect(()=>{
     axios.get(`${REACT_APP_API_URL}/products`)
@@ -21,20 +18,20 @@ export default function HomePage(){
       .catch(res=>console.error(res));
   },[]) // eslint-disable-line
 
-  useEffect(()=>{
-    console.log(cartList);
-  },[cartList])
-
-  function addToCart(id, name, price, img){
-    if(cartList.some(e=>e.id===id)) setCartList([cartList.filter(e=>e.id!==id)]);
-    else setCartList([...cartList, {id, name, price, img}]);
-  }
-
     return(
         <Page>
           <Header />
           <GameCardContainer>
-            {gameList.map(e=><GameCard addToCart={addToCart} key={e._id} gameInfo={e} />)}
+            {gameList.map(e=>
+              <GameCard
+                key={e._id}
+                _id={e._id}
+                name={e.name}
+                price={e.price}
+                header_img={e.header_img}
+                release={e.release}
+                genres={e.genres}
+              />)}
           </GameCardContainer>
         </Page>
     )

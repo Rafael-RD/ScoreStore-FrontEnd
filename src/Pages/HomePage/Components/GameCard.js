@@ -1,12 +1,18 @@
 import styled from "styled-components"
 import { gameCardColor } from "../../../constants/colors.js";
+import {useContext} from 'react';
+import { cartListContext } from "../../../Components/Context.js";
 
-export default function GameCard({addToCart, gameInfo: {
-    _id, name, price, header_img, release, genres
-}}){
+export default function GameCard({_id, name, price, header_img, release, genres}){
+    const {cartList, setCartList} = useContext(cartListContext);
+    function addToCart(){
+        if(cartList.some(e=>e._id===_id)) setCartList([cartList.filter(e=>e._id!==_id)]);
+        else setCartList([...cartList, {_id, name, price, header_img, release, genres}]);
+        console.log(cartList);
+      }
 
     return(
-        <Card onClick={()=>addToCart(_id, name, price, header_img)} >
+        <Card onClick={()=>addToCart()} >
             <img src={header_img} alt={name} />
             <GameInfo>
                 <span>{name}</span>
